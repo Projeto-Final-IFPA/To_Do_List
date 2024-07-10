@@ -1,23 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="icon.png" type="image/x-icon">
-    
+<html lang="pt-BRy">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="icon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="src/css/style.css" />
+
+    <!-- FONT -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- BOOTSTRAP ICONS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
+
     <!-- modify -->
-    <title>Title</title>
-    <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#33ffcc"/>
+    <title>To_Do_List</title>
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#33ffcc" />
     <!-- /manifest -->
-</head>
-<body>
-    
-    <h1>it works.</h1>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li class="item">
+            <span><i class="bi bi-house-fill"></i></span>
+          </li>
+          <li class="item">
+            <span><i class="bi bi-plus-circle-fill"></i></span>
+          </li>
+          <li class="item">
+            <span><i class="bi bi-bell-fill"></i></span>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="form">
+        <form id="todo-form">
+          <p>Adicione sua tarefa</p>
+          <div class="form-control">
+            <input type="text" id="todo-input" placeholder="Adcionar tarefa">
+            <button type="submit"><i class="bi bi-plus-circle-fill"></i></button>
+          </div>
+        </form>
+
+        <!-- Formulario de edicao -->
+         <form id="edit-form">
+          <p>Edite a sua taref:</p>
+          <div class="form-control">
+            <input type="text" id="edit-input">
+            <button type="submit"><i class="bi bi-check-circle-fill"></i></button>
+          </div>
+         </form>
+      </section>
+    </main>
+
+    <footer></footer>
 
     <!-- load service worker -->
     <script src="app.js"></script>
+    <script src="lista.js" defer></script>
     <!-- /load service worker -->
-</body>
+  </body>
 </html>
