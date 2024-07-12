@@ -2,6 +2,38 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Rubik", sans-serif;
+}
+
+body{
+  background-color: #FFFDF4;
+}
+
+button{
+  background-color: #FFFDF4;
+  color: #DFBD43;
+  border: none;
+  padding: .3rem .6rem;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  transition: .4s;
+}
+
+button i {
+  font-weight: bold;
+  pointer-events: none;
+}
+
+input, select {
+  padding: .25rem .5rem;
+}
+
+ul {
+  list-style: none;
 }
 
 /* HEADER  */
@@ -27,10 +59,120 @@ nav ul {
   justify-content: space-around;
   align-items: center;
   text-align: center;
-  list-style: none;
 }
 
 .item {
   width: 28px;
   height: 24px;
+}
+
+/* MAIN  */
+
+main{
+  max-width: 450px;
+  margin: 3rem auto;
+  padding: 1.5rem;
+}
+
+#todo-list{
+  overflow: auto;
+}
+
+#todo-form, #edit-form{
+  padding: 1rem;
+  border-bottom: 1px solid #CCC;
+}
+
+#todo-form p, #edit-form p, #toolbar p{
+  margin-bottom: .5rem;
+  font-weight: bold;
+}
+
+.form-control{
+  display: flex;
+}
+
+.form-control input{
+  margin-right: 0.3rem;
+}
+
+#cancel-edit-btn {
+  margin-top: 1rem;
+}
+
+.form{
+  display: flex;
+  flex-direction: column;
+}
+
+.hide {
+  display: none;
+}
+
+/* Todo toolbar */
+
+#toolbar{
+  padding: 1rem;
+  border-bottom: 1px solid #CCC;
+  display: flex;
+}
+
+
+#search {
+  border-right: 1px solid #D6D6D6;
+  padding-right: 2rem;
+  margin-right: 2rem;
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+}
+
+#search form {
+  display: flex;
+}
+
+#search input {
+  width: 100%;
+  margin-right: .3rem;
+}
+
+#filter{
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+}
+
+#filter select{
+  flex: 1;
+}
+
+/* Todo  */
+
+.todo {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem;
+  border: 2px solid #D6D6D6;
+  border-radius: 20px;
+  margin: 10px 0;
+  transition: .3s;
+}
+
+.todo h3 {
+  flex: 1;
+  font-size: .9rem;
+}
+
+.todo button {
+  margin-left: .2rem;
+}
+
+/* .done {
+  background-color: rgb(0,121,111);
+} */
+
+.done h3 {
+  text-decoration: line-through;
+  font-style: italic;
 }

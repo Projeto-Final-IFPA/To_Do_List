@@ -1,14 +1,19 @@
 <!DOCTYPE html>
-<html lang="pt-BRy">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge" /> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="icon.png" type="image/x-icon" />
     <link rel="stylesheet" href="src/css/style.css" />
 
     <!-- FONT -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- BOOTSTRAP ICONS -->
     <link
@@ -21,6 +26,9 @@
     <link rel="manifest" href="manifest.json" />
     <meta name="theme-color" content="#33ffcc" />
     <!-- /manifest -->
+
+    <!-- script  -->
+    <script src="src/js/lista.js" defer></script>
   </head>
   <body>
     <header>
@@ -40,23 +48,89 @@
     </header>
 
     <main>
+
+
+      <!-- Buscar tarefa -->
+      <section id="toolbar">
+        <div id="search">
+          <p>Pesquisar</p>
+          <form>
+            <input type="text" id="search-input" placeholder="Buscar" />
+            <button id="erase-button">
+              <i class="bi bi-x-circle-fill"></i>
+            </button>
+          </form>
+        </div>
+
+        <!-- Filtro -->
+        <div id="filter">
+          <p>filtrar</p>
+          <select id="filter-select">
+            <option value="all">Todos</option>
+            <option value="done">Feitos</option>
+            <option value="todo">A fazer</option>
+          </select>
+        </div>
+      </section>
+
+      <!-- Add tarefa -->
       <section class="form">
         <form id="todo-form">
           <p>Adicione sua tarefa</p>
           <div class="form-control">
-            <input type="text" id="todo-input" placeholder="Adcionar tarefa">
-            <button type="submit"><i class="bi bi-plus-circle-fill"></i></button>
+            <input type="text" id="todo-input" placeholder="Adcionar tarefa"/>
+            <button type="submit">
+              <i class="bi bi-plus-circle-fill"></i>
+            </button>
           </div>
         </form>
 
         <!-- Formulario de edicao -->
-         <form id="edit-form">
-          <p>Edite a sua taref:</p>
+        <form id="edit-form" class="hide">
+          <p>Edite a sua tarefa:</p>
           <div class="form-control">
-            <input type="text" id="edit-input">
-            <button type="submit"><i class="bi bi-check-circle-fill"></i></button>
+            <input type="text" id="edit-input" placeholder="Editar tarefa" />
+            <button type="submit">
+              <i class="bi bi-check-circle-fill"></i>
+            </button>
           </div>
-         </form>
+          <button id="cancel-edit-btn">Cancelar</button>
+        </form>
+
+        <!-- Tarefa  -->
+        <div id="todo-list">
+          <h1>Minhas Tarefas</h1>
+
+          <div class="todo done">
+            <h3>estou fazendo alguma coisa</h3>
+            <button class="finish-todo">
+              <i class="bi bi-check2"></i>
+            </button>
+
+            <button class="edit-todo">
+              <i class="bi bi-pencil-square"></i>
+            </button>
+
+            <button class="remove-todo">
+              <i class="bi bi-trash"></i>
+            </button>
+          </div>
+
+          <div class="todo">
+            <h3>estudando javaScript</h3>
+            <button class="finish-todo">
+              <i class="bi bi-check2"></i>
+            </button>
+
+            <button class="edit-todo">
+              <i class="bi bi-pencil-square"></i>
+            </button>
+
+            <button class="remove-todo">
+              <i class="bi bi-trash"></i>
+            </button>
+          </div>
+        </div>
       </section>
     </main>
 
@@ -64,7 +138,6 @@
 
     <!-- load service worker -->
     <script src="app.js"></script>
-    <script src="lista.js" defer></script>
     <!-- /load service worker -->
   </body>
 </html>
