@@ -31,21 +31,8 @@
     <script src="src/js/lista.js" defer></script>
   </head>
   <body>
-    <header>
-      <nav>
-        <ul>
-          <li class="item">
-            <span><i class="bi bi-house-fill"></i></span>
-          </li>
-          <li class="item">
-            <span><i class="bi bi-plus-circle-fill"></i></span>
-          </li>
-          <li class="item">
-            <span><i class="bi bi-bell-fill"></i></span>
-          </li>
-        </ul>
-      </nav>
-    </header>
+
+    <div class="alert"></div>
 
     <main>
 
@@ -79,7 +66,7 @@
           <p>Adicione sua tarefa</p>
           <div class="form-control">
             <input type="text" id="todo-input" placeholder="Adcionar tarefa"/>
-            <button type="submit">
+            <button class="botao" type="submit">
               <i class="bi bi-plus-circle-fill"></i>
             </button>
           </div>
@@ -98,38 +85,10 @@
         </form>
 
         <!-- Tarefa  -->
-        <div id="todo-list">
+        <div id="todo-list" class="hide">
           <h1>Minhas Tarefas</h1>
 
-          <div class="todo done">
-            <h3>estou fazendo alguma coisa</h3>
-            <button class="finish-todo">
-              <i class="bi bi-check2"></i>
-            </button>
 
-            <button class="edit-todo">
-              <i class="bi bi-pencil-square"></i>
-            </button>
-
-            <button class="remove-todo">
-              <i class="bi bi-trash"></i>
-            </button>
-          </div>
-
-          <div class="todo">
-            <h3>estudando javaScript</h3>
-            <button class="finish-todo">
-              <i class="bi bi-check2"></i>
-            </button>
-
-            <button class="edit-todo">
-              <i class="bi bi-pencil-square"></i>
-            </button>
-
-            <button class="remove-todo">
-              <i class="bi bi-trash"></i>
-            </button>
-          </div>
         </div>
       </section>
     </main>

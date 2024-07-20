@@ -36,36 +36,6 @@ ul {
   list-style: none;
 }
 
-/* HEADER  */
-
-header {
-  width: 100vw;
-  height: 4.25rem;
-  position: fixed;
-  bottom: 0;
-}
-
-header nav {
-  height: 100vh;
-  background-color: #edeaea;
-  border-radius: 30px 30px 0 0;
-  margin: 0;
-  align-items: center;
-  text-align: center;
-}
-
-nav ul {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  text-align: center;
-}
-
-.item {
-  width: 28px;
-  height: 24px;
-}
-
 /* MAIN  */
 
 main{
@@ -168,11 +138,51 @@ main{
   margin-left: .2rem;
 }
 
-/* .done {
-  background-color: rgb(0,121,111);
-} */
-
 .done h3 {
   text-decoration: line-through;
   font-style: italic;
 }
+
+/* BOTÃO NOTFICATION */
+
+.message {
+  padding: 19px 60px;
+  position: fixed;
+  top: 20px;
+  right: 105px;
+  background-color: chocolate;
+  border-radius: 3px;
+  color: #fff;
+  animation: slidein 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@keyframes slidein {
+  0% {
+    transform: translateX(1000px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.message::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 5px;
+  background-color: rgba(0, 0, 0, 0.5);
+  animation: time 3s forwards;
+}
+@keyframes time {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+

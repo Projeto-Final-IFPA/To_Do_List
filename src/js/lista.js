@@ -6,42 +6,46 @@ const editForm = document.querySelector("#edit-form");
 const editInput = document.querySelector("#edit-input");
 const cancelEditBtn = document.querySelector("#cancel-edit-btn");
 
+const searchInput = document.querySelector("#search-input");
+const filterSelect = document.querySelector("#filter-select");
+
 let oldInputValue;
 
 // Funções 
 
-// Esta função pega os elementos HTML 
+// Função para gerar o HTML da tarefa
+function generateTodoHTML(text) {
+  return `
+    <div class="todo">
+      <h3>${text}</h3>
+      <button class="finish-todo">
+        <i class="bi bi-check2"></i>
+      </button>
+      <button class="edit-todo">
+        <i class="bi bi-pencil-square"></i>
+      </button>
+      <button class="remove-todo">
+        <i class="bi bi-trash"></i>
+      </button>
+    </div>
+  `;
+}
+
+// Esta função salva a nova tarefa
 const saveTodo = (text) => {
-  const todo = document.createElement("div")
-  todo.classList.add("todo")
-
-  const todoTitle = document.createElement("h3")
-  todoTitle.innerText = text
-  todo.appendChild(todoTitle)
-
-  const doneBtn = document.createElement("button")
-  doneBtn.classList.add("finish-todo")
-  doneBtn.innerHTML = '<i class="bi bi-check2"></i>'
-  todo.appendChild(doneBtn)
-
-  const editBtn = document.createElement("button")
-  editBtn.classList.add("edit-todo")
-  editBtn.innerHTML = '<i class="bi bi-pencil-square"></i>'
-  todo.appendChild(editBtn)
-
-  const deleteBtn = document.createElement("button")
-  deleteBtn.classList.add("remove-todo")
-  deleteBtn.innerHTML = '<i class="bi bi-trash"></i>'
-  todo.appendChild(deleteBtn)
-
-  // Adssionando a lista no todo-list 
-  todoList.appendChild(todo)
+  // Inserindo o HTML na lista de tarefas (somente usando innerHTML)
+  todoList.innerHTML += generateTodoHTML(text);
 
   // Limpando o Input quando o formulário for enviado
   todoInput.value = " ";
 
   // Focar no input toda vez que enviar o formulário
   todoInput.focus();
+
+  // Removendo a classe "hide" da todo-list (only once)
+  if (todoList.classList.contains("hide")) {
+    todoList.classList.remove("hide");
+  }
 }; 
 
 // Esta função esconde e mostra o formulário adcionar tarefa e o editar tarefa 
@@ -65,7 +69,7 @@ todoForm.addEventListener("submit", (e) => {
 
   if(inputValue) {
     saveTodo(inputValue);
-  }    
+  }
 });
 
 // Função atualizar edição
@@ -127,3 +131,29 @@ editForm.addEventListener("submit", (e) =>{
 
   toggleForms();
 })
+
+// Inicializando a lista oculta (hide class in HTML)
+todoList.classList.add("hide");
+
+
+// NOTFICATION BOTAO
+
+const btn = document.querySelector(".botao");
+const divMessage = document.querySelector(".alert");
+
+const msg = "Tarefa adcionada com sucesso !!!";
+
+function ativar(msg) {
+  const message = document.createElement("div");
+  message.classList.add("message");
+  message.innerText = msg;
+  divMessage.appendChild(message);
+
+  setTimeout(() => {
+    message.style.display = "none";
+  }, 3000);
+}
+
+btn.addEventListener("click", () => {
+  ativar(msg);
+});
